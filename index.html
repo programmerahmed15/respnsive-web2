@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+        body{
+            height: 100vh;
+            background: url('img/coffee.jpg');
+            background-position: center;
+            background-size: cover;
+            
+
+        }
+
+        header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+        }
+
+        header .navbar{
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+
+        }
+
+        .navbar .logo{
+            color: #fff;
+            font-size: 2.1rem;
+            font-weight: 600;
+        }
+        .navbar .logo span{
+            color: #c06b3E;
+        }
+
+        .navbar .menu-links{
+            display: flex;
+            gap: 40px;
+
+        }
+        .navbar a{
+            color: #fff;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+        .navbar a:hover{
+            color: #c06b3E;
+        }
+        .hero-section{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+
+        }
+        .hero-section .content{
+            color: #fff;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .hero-section .content h1{
+            font-size: 3rem;
+            max-width: 600px;
+        }
+        .hero-section .content p{
+            font-weight: 300;
+            margin-top: 15px;
+            max-width: 600px;
+        }
+        #menu-btn{
+            color: #fff;
+            cursor: pointer;
+        }
+        #close-menu-btn{
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+       @media screen and (max-width: 900px){
+        header {
+            padding: 10px 20px;
+        }
+        header.show-mobile-menu::before{
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+        }
+        #close-menu-btn, #menu-btn{
+            display: block;
+        }
+        .navbar.menu-links{
+            position: fixed;
+            left: -260px;
+            top: 0;
+            flex-direction: column;
+            width: 250px;
+            height: 100vh;
+            background: #fff;
+            padding: 70px 40px 0;
+            transition: left 0.15s ease;
+        }
+
+        header .show-mobile-menu .navbar.menu-links{
+            left: 0;
+
+        }
+        .navbar a {
+            color: #000;
+
+        }
+
+        .hero-section .content {
+            text-align: center;
+        }
+
+        .hero-section .content :is(h1, p){
+            max-width: 100%;
+
+        }
+        .hero-section .content h1 {
+            font-size: 2.3rem;
+            line-height: 60px;
+
+        }
+       }
+        
+
+       
+
+    </style>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <a href="" class="logo">Coffee <span>.</span></a>
+        <ul class="menu-links">
+            <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+            <li><a href="">Home</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">Testimonials</a></li>
+            <li><a href="">About us</a></li>
+            <li><a href="">Contact us</a></li>
+            
+        </ul>
+        <span id="menu-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+   </header> 
+   <section class="hero-section">
+    <div class="content">
+        <h1>Start Your Day With Fresh Coffee</h1>
+        <p>Lorem ipsum dolor sit amet consectetur
+         adipisicing elit. Aliquam, omnis in.  Lorem ipsum dolor sit amet. jay cutler isIure vel aut non. Debitis quo quam optio atque?</p>
+    </div>
+    
+   </section>
+
+
+   <script>
+    const header = document.querySelector("header");
+    const menuBtn = document.querySelector("#menu-btn");
+    const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+    menuBtn.addEventListener("click", () => {
+        header.classList.toggle("show-mobile-menu")
+    })
+    closeMenuBtn.addEventListener("click", () => {
+       menuBtn.click()
+    })
+   </script>
+</body>
+</html>
